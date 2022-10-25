@@ -1,10 +1,18 @@
 class Dispenser:
-    def __init__(self, product = [], quantity = []):
-        self.product = product
-        self.quantity = quantity
-        self.hasProduct = bool(self.quantity)
+    def __init__(self, products = {}):
+        self.product = products # Stores a product dictionary where the key is the product name 
+                                # and the value if the product quantity.
+        self.hasProduct = bool(self.product)
     
-    def dispenseItem(self):
+    def dispenseItems(self):
         if self.hasProduct:
-            return self.quantity, self.quantity
-        return [], []
+            return self.product
+        return {}
+    
+    def addItems(self, item = {}):
+        try: 
+            self.product.update(item) # Merge existing products with new products
+        except KeyboardInterrupt:
+            exit()
+        except Exception as e:
+            return "Error adding item"
