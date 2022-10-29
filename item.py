@@ -1,9 +1,9 @@
 class Item:
     def __init__(self, price, id, name, quantity):
-		self.price = price
-		self.id = id
-		self.name = name
-		self.quantity = quantity
+	self.price = price
+	self.id = id
+	self.name = name
+	self.quantity = quantity
     
     #getter and setter function for price
     def setPrice(self, p):
