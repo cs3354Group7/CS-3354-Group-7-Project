@@ -1,5 +1,5 @@
 class Inventory:
-    def __init__(self, inventory = {}):
+    def __init__(self, inventory = []):
         self.inventory = inventory
     
     def get_Quantity(self, item):
