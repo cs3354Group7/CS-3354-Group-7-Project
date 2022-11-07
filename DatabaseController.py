@@ -17,6 +17,7 @@ class DatabaseController:
         a local connection with a default DatabaseName and file path
         Parameter: Database URL  ** Return: Connection Object
         """
+        
         if dataBase is None:
             print("Error! Database URL was not given correctly. Try Connecting again.")
         else:
@@ -29,6 +30,7 @@ class DatabaseController:
         """ Disconnects from the Database URL given.
         Parameter: Database URL  ** Return: Nothing
         """
+        
         if self.connection is None:
             print("No connection exists, Cannot Disconnect.")
         else: 
@@ -37,33 +39,48 @@ class DatabaseController:
         return
         
 
-    def createAdminAccountTable():
+    def createAdminAccountTable(self):
         """ Creates Admin Table corresponding to the AdminAccount Object
         Parameter: Database URL  ** Return: Nothing
         """
+        
+        self.connection.execute("""
+                                CREATE TABLE AdminAccount
+                                ID INT PRIMARY KEY       NOT NULL,
+                                USERNAME TEXT            NOT NULL,
+                                PASSWORD PASSWORD        NOT NULL,
+                                PASSWORDEXPIRYDATE  DATE NOT NULL,
+                                FAILEDATTEMPTS INT       NOT NULL,
+                                """)
         return
     
 
     def updateTable(listOfAdminAccounts):
         """ Updates the Admin table with an additional list of admins
+        TO BE IMPLEMENTED
         """
-        return
+        pass
     
-    def findAdmin(userName):
+    def findAdmin(self, userName, tableName):
         """ Searches for an admin user from their userName
         ParameterL: String Username  **Return: An admin Object if found or Null
         """
-        pass
+        
+        self.connection.execute(f'SELECT {userName} FROM {tableName}')
 
-    def getAllAdmins(connection, tableName):
+    def getAllAdmins(self, tableName):
         """Returns all admins as a list of Objects of the type AdminAccount
         """
-        return
+        
+        return self.connection.execute(f'SELECT * FROM {tableName} ')
 
-    def deleteTable():
+
+    def deleteTable(self, tableName):
         """Deletes the Intended tableName from the database
         Parameter: TableName,   **Return: Nothing
         """
+        
+        self.connection.execute(f'DELETE {tableName}')
         return
     
    

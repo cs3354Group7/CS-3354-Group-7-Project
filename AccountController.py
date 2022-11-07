@@ -16,12 +16,14 @@ class AccountController:
     def validateLoginDetails(self, userName, password):
         """Verifies if the account exists and returns a boolean """
         adminResult = self.databaseController.findAdmin(userName)
-        if adminResult is None or adminResult.password == password:
+        if adminResult is None or adminResult.password != password:
             return False
-        else: 
-            True
+        else:
+            return True
     
-    def getAccount(userName, password):
-         
-        pass
+    def getAccount(self, userName):
+         return self.databaseController.findAdmin(userName)
+    
+    def FinalTask(self):
+        self.databaseController.disconnectFromDatabase()
     
