@@ -15,15 +15,13 @@ class AdminAccount:
     def updateAccount(self, admin):
         """ Updates Admin Account, like an alternate constructor 
         """
-        if admin is None :
-            print("Error! The updated field is invalid. Try Again...")
-        else: 
+        if admin is not None :
             self.userName = admin.userName
             self.password = admin.passWord
             self.passWordExpiryDate = admin.passWordExpiryDate
-            self.failedAttempts = admin.failedAttempts
+            self.failedAttempts = admin.failedAttempts 
+            
         
-    
     def updatePassword(self, password):
        self.password = password
    
