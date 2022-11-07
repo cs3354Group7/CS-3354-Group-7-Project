@@ -7,19 +7,18 @@ Created on Wed Nov  2 15:09:30 2022
 
 class PowerController:
     
-    def __init__():
-        #Initialies the database that stores schedule info and 
-        pass
+    def __init__(self, intendedState, schedule = None):
+        #Initializes the database that stores schedule info and 
+        self.intendedState = intendedState
+        self.schedule = schedule
+    
     
     def powerOff():
-        pass
+        intendedState = False
     
     def powerOn():
-        pass
+        intendedState = True
     
-    def schedulePowerOff():
-        pass
     
-    def emergencyShutDown(adminAccountInfo):
-        pass
+
     

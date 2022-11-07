@@ -12,9 +12,24 @@ class AdminAccount:
         self.passWordExpiryDate = passWordExpiryDate
         self.failedAttempts = failedAttempts
         
-    def updateAccount(admin):
-        pass
+    def updateAccount(self, admin):
+        """ Updates Admin Account, like an alternate constructor 
+        """
+        if admin is None :
+            print("Error! The updated field is invalid. Try Again...")
+        else: 
+            self.userName = admin.userName
+            self.password = admin.passWord
+            self.passWordExpiryDate = admin.passWordExpiryDate
+            self.failedAttempts = admin.failedAttempts
+        
     
-    def deleteAdmin(Admin):
-        pass
-    
+    def updatePassword(self, password):
+       self.password = password
+   
+   
+    def updateUserName(self, userName):
+        self.userName = userName
+       
+       
+       
