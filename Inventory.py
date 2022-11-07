@@ -1,5 +1,12 @@
+'''
+The Inventory class stores all the items within a vending machine. 
+The items include the item name and the item quantity. The get_Quantity
+function returns the quantiy of a selected item. The item quantity is able
+to be added to and subtracted using the sub and add functions. 
+'''
+
 class Inventory:
-    def __init__(self, inventory = []):
+    def __init__(self, inventory = {}):
         self.inventory = inventory
     
     def get_Quantity(self, item):
@@ -16,7 +23,8 @@ class Inventory:
     def sub(self, item):
         if(bool(self.inventory[item])):
             count = self.inventory.get(item)
-            self.inventory[item] = count - 1
+            if((count - 1) >= 0):
+                self.inventory[item] = count - 1
            
     
     def clear_Item(self, item):
