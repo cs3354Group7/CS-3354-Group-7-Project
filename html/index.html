@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+    </head>
+    <body>
+        <div class="main-content">
+            <div class="machine">
+                <div class="search-content">
+                    <div class="search">
+                    <form action="/action_page.php">
+                        <input class="search" type="text" placeholder="Search" name="search">
+                        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    </div>
+                    <div class="search-content-buttons">
+                        <a href="/login" class="button button-on">Login</a>
+                        <a href="/sign-up" class="button">Sign Up</a>
+                        <a href="/contact" class="button">Contact Us</a>
+                    </div>
+
+                </div>
+                <div class="machine-content">
+                    <h1>Vending Machine</h1>
+                </div>
+            </div>
+            <div class="side-bar">   
+                <div class="items-selected">
+                    <h3>Selected Items</h3>
+                </div>
+                <div class="purchase">
+                    <h3>Money Inserted</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
