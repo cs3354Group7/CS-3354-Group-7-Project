@@ -2,6 +2,7 @@ html, body{
     padding: 1em;
     margin: 0px;
     overflow-x: hidden;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .main-content{
@@ -14,6 +15,7 @@ html, body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items:center;
 }
 
 .side-bar{
@@ -58,4 +60,29 @@ a{
     border-radius: 10px;
     padding: 1em;
     text-align: center;
+    
 }
+
+.machine-content:after{
+ content:'';
+ clear:both;
+ display:block;
+}
+
+.machine-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 0.25em;
+    column-gap: 1em;
+    overflow-y: scroll;
+    max-height: 73vh;
+    height: 73vh;    
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+
