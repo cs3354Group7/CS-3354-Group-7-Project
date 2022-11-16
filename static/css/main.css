@@ -1,0 +1,88 @@
+html, body{
+    padding: 1em;
+    margin: 0px;
+    overflow-x: hidden;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.main-content{
+    display: grid;
+    grid-template-columns: 75% 25%;	
+    column-gap: 1em;
+}
+
+.search-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.side-bar{
+    display:grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1em;
+}
+
+.button{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+a{
+    text-decoration: none;
+    border-radius: 12px;
+    color: black;
+    padding: 1em;
+}
+
+.button-on{
+    background-color: #A10D46;
+    color: white !important;
+}
+
+.search{
+    padding: 1em;
+    border-radius: 12px;
+}
+
+.search-button{
+    padding: 1em;
+    background-color: #A10D46;
+    border-radius: 12px;
+    border-width:0px;
+    height: 70%;
+    color: white;
+}
+
+.machine-content{
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+    
+}
+
+.machine-content:after{
+ content:'';
+ clear:both;
+ display:block;
+}
+
+.machine-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 0.25em;
+    column-gap: 1em;
+    overflow-y: scroll;
+    max-height: 73vh;
+    height: 73vh;    
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 50% 50%;
+}
+
+

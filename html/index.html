@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+    </head>
+    <body>
+        <div class="main-content">
+            <div class="machine">
+                <div class="search-content">
+                    <div class="search">
+                    <form action="/action_page.php" style="margin:0px;">
+                        <input class="search" type="text" placeholder="Search" name="search">
+                        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    </div>
+                    <div class="search-content-buttons">
+                        <a href="/login" class="button button-on">Login</a>
+                        <a href="/sign-up" class="button">Sign Up</a>
+                        <a href="/contact" class="button">Contact Us</a>
+                    </div>
+
+                </div>
+                <div class="machine-content">
+
+                    <div class="container">
+                         <h1>Vending Machine</h1>
+                         <div class="machine-container">
+                        <div class="machine-item">
+                            <div class="item-image">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41itWEiw3H6G7N0JYvOArX0ds1gfWpT37ginwHnZSSg&s" style="max-height:100px; max-width:100px;">
+                            </div>
+                            <p class="">Item</p>
+                        </div> <!--Machine Item-->
+                         </div>
+
+                         <div class="select-machine">
+                            <h1>Select Machine</h1>
+                         </div>
+                    </div>
+                    </div> <!--Machine Content-->
+                </div>
+            <div class="side-bar">   
+                <div class="items-selected">
+                    <h3>Selected Items</h3>
+
+                    <div class="item">
+                    </div>  
+                </div>
+                <div class="purchase">
+                    <h3>Money Inserted</h3>
+                </div>
+            </div> <!--Side Bar-->
+        </div><!--Main Container-->
+    </body>
+</html>
