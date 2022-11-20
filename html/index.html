@@ -1,56 +1,66 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
     </head>
     <body>
         <div class="main-content">
-            <div class="machine">
-                <div class="search-content">
-                    <div class="search">
-                    <form action="/action_page.php" style="margin:0px;">
-                        <input class="search" type="text" placeholder="Search" name="search">
-                        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
+            <div class="vending-wrap">
+
+                <div class="search-wrap">
+                    <form action="/action_page.php">
+                        <input type="search" id="search" name="gsearch" placeholder="Search Item...">
                     </form>
+
+                    <div class="search-buttons">
+                        <button class="selected">Login</button>
+                        <button>Sign Up</button>
+                        <button>Contact Us</button>
                     </div>
-                    <div class="search-content-buttons">
-                        <a href="/login" class="button button-on">Login</a>
-                        <a href="/sign-up" class="button">Sign Up</a>
-                        <a href="/contact" class="button">Contact Us</a>
-                    </div>
+                </div>
+                <div class="vending-content-wrap">
+                    <h1>Vending Machine</h1>
+                    <div class="items-wrap">
+
+                    </div><!--End of items wrap-->
+                    <div class="select-machine-wrap">
+                        <h3>Select Machine</h3>
+                        <div class="selection-wrap">
+                            <div class="left-arrow"></div>
+                            <div class="selection-content"></div>
+                            <div class="right-arrow"></div>
+                        </div>
+                    </div><!--End of machine wrap-->
 
                 </div>
-                <div class="machine-content">
 
-                    <div class="container">
-                         <h1>Vending Machine</h1>
-                         <div class="machine-container">
-                        <div class="machine-item">
-                            <div class="item-image">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS41itWEiw3H6G7N0JYvOArX0ds1gfWpT37ginwHnZSSg&s" style="max-height:100px; max-width:100px;">
-                            </div>
-                            <p class="">Item</p>
-                        </div> <!--Machine Item-->
-                         </div>
+            </div> <!--End of Vending Content-->
+            <div class="sidebar-wrap">
 
-                         <div class="select-machine">
-                            <h1>Select Machine</h1>
-                         </div>
-                    </div>
-                    </div> <!--Machine Content-->
-                </div>
-            <div class="side-bar">   
-                <div class="items-selected">
+                <div class="selected-wrap">
                     <h3>Selected Items</h3>
-
-                    <div class="item">
-                    </div>  
+                    <div class="selected-items-wrap">
+                        <div class="item-info">
+                            <img src="" alt="wow">
+                            <p class="item-name">Chanel</p>
+                            <p class="item-counter">6</p>
+                        </div> <!--End of item info-->
+                    </div>
+                    <button>Purchase</button>
                 </div>
-                <div class="purchase">
+                <div class="money-inserted-wrap">
                     <h3>Money Inserted</h3>
+                    <div class="inserted-wrap">
+                        <div class="inserted-info">
+                            <img src="" alt="wow">
+                            <p class="item-name"></p>
+                            <p class="item-counter"></p>
+                        </div> <!--End of item info-->
+                    </div>
+                    <button>Dispense</button>
                 </div>
-            </div> <!--Side Bar-->
-        </div><!--Main Container-->
+
+            </div> <!--End of Sidebar Content-->
+        </div>
     </body>
 </html>
