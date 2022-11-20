@@ -70,7 +70,7 @@ a {
   width: 320px;
   height: 56px;
   border-radius: 18px;
-  border: 1px solid #F5F5F5;
+  border: 2px solid #F5F5F5;
   padding-left: 39px;
 }
 
@@ -105,10 +105,16 @@ a {
   font-weight: bold;
   font-size: 14px;
   background-color: white;
-  border: none;
+  border: 0px;
   cursor: pointer;
   padding: 16px;
   border-radius: 12px;
+}
+
+.search-wrap .search-buttons button:hover {
+  background-color: white;
+  border: 2px solid #A10D46;
+  color: #A10D46;
 }
 
 .search-wrap .search-buttons .selected {
@@ -166,6 +172,14 @@ a {
   color: white;
   border: 0px;
   border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sidebar-wrap button:hover {
+  background-color: white;
+  border: 2px solid #A10D46;
+  color: #A10D46;
 }
 
 .sidebar-wrap .selected-wrap, .sidebar-wrap .money-inserted-wrap {
@@ -175,6 +189,12 @@ a {
 .sidebar-wrap .selected-wrap img, .sidebar-wrap .money-inserted-wrap img {
   width: 48px;
   height: 48px;
+}
+
+.sidebar-wrap .selected-wrap .selected-items-wrap, .sidebar-wrap .selected-wrap .inserted-wrap, .sidebar-wrap .money-inserted-wrap .selected-items-wrap, .sidebar-wrap .money-inserted-wrap .inserted-wrap {
+  overflow-y: scroll;
+  max-height: 40vh;
+  margin-bottom: 16px;
 }
 
 .sidebar-wrap .selected-wrap .item-info, .sidebar-wrap .selected-wrap .inserted-info, .sidebar-wrap .money-inserted-wrap .item-info, .sidebar-wrap .money-inserted-wrap .inserted-info {
