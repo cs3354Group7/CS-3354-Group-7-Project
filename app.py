@@ -14,11 +14,6 @@ def home():
 def purchase():
     return "Purchase Page"
 
-# Return Admin login
-@app.route("/admin")
-def admin():
-    return render_template('admin.html')
-
 # Return admin page
 @app.route("/adminPage")
 def adminPage():
@@ -27,7 +22,7 @@ def adminPage():
 # Return login Page
 @app.route("/login")
 def login():
-    return "Login Page"
+    return render_template('login.html')
 
 # Return Sign Up Page
 @app.route("/sign-up")
