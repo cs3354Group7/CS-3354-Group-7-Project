@@ -32,7 +32,7 @@ def signUp():
 # Return Contact Us Page
 @app.route("/contact")
 def contact():
-    return "Contact Page"
+    return render_template('contact.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
