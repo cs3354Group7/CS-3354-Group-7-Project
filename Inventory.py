@@ -10,12 +10,15 @@ class Inventory:
         self.inventory = inventory
     
     def get_Quantity(self, item):
-        value = self.inventory.get(item)
+        value = self.inventory.get(item).getPrice()
         if (value == None):
             return 0
         else:
          return value 
         
+    def get_Item(self, item):
+        return self.inventory.get(item)
+
     def add(self, item):
         count = self.inventory.get(item)
         self.inventory[item] = count + 1
