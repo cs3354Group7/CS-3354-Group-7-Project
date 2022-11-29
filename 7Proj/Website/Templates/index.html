@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}">
+    </head>
+    <body>
+        <div class="main-content">
+            <div class="vending-wrap">
+                <div class="nav">
+                    <input type="checkbox" id="nav-check">
+                    <div class="nav-header">
+                      <div class="nav-title">
+                        Custom Vends
+                      </div>
+                    </div>
+                    <div class="nav-btn">
+                      <label for="nav-check">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                      </label>
+                    </div>
+                    
+                    <div class="nav-links">
+                      {% if user.is_authenticated %}
+                      <a href="/" >Home</a>
+                      <a href="/contact" >Contact Us</a>
+                      <a href="/inventory" >Inventory</a>
+                      <a href ="/admin" > Admin Page</a>
+                      <a href="/logout" >Logout</a>
+            
+                      {% else %}
+                      <a href="/" >Home</a>
+                      <a href="/login" >Login</a>
+                      <a href="/contact" >Contact Us</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                <div class="vending-content-wrap">
+                    <h1>Vending Machine</h1>
+                    <div class="items-wrap">
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
+                            <p>coke</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item" onclick="showMsg('Hello')">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item">
+                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                        <div class="machine-item">
+                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                            <p>Item Name</p>
+                            <p>Price: $1.50</p>
+                        </div><!--End of machine item wrap-->
+                    </div><!--End of items wrap-->
+                    <div class="select-machine-wrap">
+                        <h3>Select Machine</h3>
+                        <div class="selection-wrap">
+                            <div class="left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+                            <div class="selection-content">
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                                <div class="machine-item" onclick="showMsg('Hello')">
+                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                    <p>Item Name</p>
+                                    <p>Price: $1.50</p>
+                                </div><!--End of machine item wrap-->
+                            </div><!--End of selection content-->
+                            <div class="right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                        </div>
+                    </div><!--End of machine wrap-->
+
+                </div>
+
+            </div> <!--End of Vending Content-->
+            <div class="sidebar-wrap">
+
+                <div class="selected-wrap">
+                    <h3>Selected Items</h3>
+                    <div class="selected-items-wrap">
+                        <div class="item-info">
+                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
+                            <p class="item-name">Chanel</p>
+                            <p class="item-counter">6</p>
+                        </div> <!--End of item info-->
+                        <div class="item-info">
+                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
+                            <p class="item-name">Chanel</p>
+                            <p class="item-counter">6</p>
+                        </div> <!--End of item info-->
+                    </div>
+                    <button>Purchase</button>
+                </div>
+                <div class="money-inserted-wrap">
+                    <h3>Money Inserted</h3>
+                    <div class="inserted-wrap">
+                        <div class="inserted-info">
+                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
+                            <p class="item-name"></p>
+                            <p class="item-counter"></p>
+                        </div> <!--End of item info-->
+                    </div>
+                    <button>Dispense</button>
+                </div>
+
+            </div> <!--End of Sidebar Content-->
+        </div>
+
+        <!--Scripts-->
+         <script type="application/javascript">
+            function showMsg(item) {
+            alert(item);
+        }
+        </script>
+    </body>
+</html>
+
