@@ -9,7 +9,13 @@ pip install -r requirements.txt
 
 > Run webserver
 ```
-python app.py
+python main.py
+```
+
+> Admin Login
+```
+Email: test@gmail.com
+Password: 1234567890
 ```
 
 > View Webpage
