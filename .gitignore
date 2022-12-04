@@ -3,3 +3,4 @@ settings.json
 *.scss
 *.map
 /databases/*.py
+/instance/*.py
