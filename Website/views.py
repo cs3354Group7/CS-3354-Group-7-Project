@@ -9,12 +9,15 @@ from . import db
 
 views = Blueprint('views', __name__)
 
-@views.route("/",methods=['GET', 'POST'])
-def home():
+@views.route('/', defaults={'machine' : '1'}, methods=['GET', 'POST'])
+@views.route("/<machine>", methods=['GET', 'POST'])
+def home(machine):
+    machine = machine.split("=")[1]
     machines = Machines.query.all()
-    print(machines)
+    current = Machines.query.filter_by(id = int(machine)).first()
     context = {
         'machines' : machines,
+        'current' : current,
     }
     return render_template('index.html', user = current_user, context = context)
 
