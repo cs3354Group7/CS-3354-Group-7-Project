@@ -79,7 +79,7 @@
                             <div class="selection-content">
                                 {% for machine in context.machines %}
                                     {% if context.current.id != machine.id and machine.id < 7 %}
-                                    <a href="/machine={{machine.id}}">
+                                    <a href="/?machine={{machine.id}}">
                                         <div class="machine-item">
                                         <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
                                             <p>{{machine.name}}</p>
