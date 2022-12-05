@@ -57,7 +57,7 @@
                         <!--Selected Items go here-->
                     </div>
                     <p id="total">Total: $<span id="total-price">0.00<span></p>
-                    <a href="/purchase"><button>Purchase</button></a>
+                    <button onclick= "purchaseItem()">Purchase</button>
                 </div>
                 <!--start of inserted
                 <div class="money-inserted-wrap">
@@ -163,6 +163,11 @@
             } else{
                 document.getElementById("item-info-" + id).remove();
             }
+        }
+
+        function purchaseItem(){
+            var total = document.getElementById("total-price").innerText;
+            //window.location.replace("purchase?total=" + total);
         }
         </script>
     </body>

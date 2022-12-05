@@ -25,9 +25,9 @@ def home(machine):
     return render_template('index.html', user = current_user, context = context)
 
 # Return Purchase Page
-@views.route("/purchase", methods=['GET', 'POST'])
-def purchase():
-    totals = 0.0
+@views.route("/purchase/<total>", methods=['GET', 'POST'])
+def purchase(total):
+    totals = request.args.get('total')
     if request.method =="POST":
         money = request.form.get('moneyz')
         money2 = Decimal(money)
