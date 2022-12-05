@@ -41,18 +41,25 @@
         {% endif %} {% endfor %} {% endif %} {% endwith %}
     <div class="container">
       <div class = "form">
-        <div>
             <h1>Checkout</h1>
-            <h2>Total: ${{total}}</h2>
+            <h2>Total: $<span id="wow">{{total}}</span></h2>
+            <input type="number" step = ".01" name="price" id="price">
             <button class = "buttonCenter" id="button" onclick="purchaseMade()">Buy Now</button>
-        </div>
         </div>
     </div>
 
     <script>
       function purchaseMade(){
-        alert('Purchase Successful');
+        var wow = parseFloat(document.getElementById("wow").innerText);
+        var wow2 = parseFloat(document.getElementById("price").value);
+        console.log(wow, wow2);
+        if((wow2 - wow) < 0){
+            alert('Not enough')
+        }
+        else{
+        alert('Change is: $' + (wow2 - wow) );
         window.location.replace("/");
+        }
       }
     </script>
 </body>

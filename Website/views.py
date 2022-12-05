@@ -30,6 +30,16 @@ def purchase():
     totals = request.args.get('total', default=0.00)
     print("[*]", totals)
     total = totals
+    if request.method =="POST":
+        money = request.form.get('moneyz')
+        money2 = Decimal(money)
+        if money2 == 0:
+            flash("Insufficient Funds")
+        elif money2 < Decimal(total):
+             flash("Insufficient Funds")
+        else:
+            totals = round(money2 - Decimal(total), 2)
+    total = totals
     return render_template("purchase.html", user = current_user, total = total)
 
 # Return Admin Page
@@ -79,18 +89,21 @@ def inventory():
         if product:
             if qty:
                 product.qty = product.qty + int(qty)
-            if price:
-                product.price = product.price + int(price)
+            if Decimal(price) > Decimal(0):
+                product.price = Decimal(price)
             db.session.commit()
         elif len(item) < 3:
             flash('Item name must be bigger than 4 characters', category='error')
         elif price == 0:
             flash('Price must be greater than $0', category='error')
         else:
-            new_item = Inventory(item=item, qty=qty, price=price)
-            db.session.add(new_item)
-            db.session.commit()
-            flash('Item Created!', category='success')
+            if not qty and not price:
+                flash('Enter qty or Price')
+            else:
+                new_item = Inventory(item=item, qty=qty, price=price)
+                db.session.add(new_item)
+                db.session.commit()
+                flash('Item Created!', category='success')
     items = Inventory.query.all()
     return render_template("inventory.html", user = current_user, items = items)
 
