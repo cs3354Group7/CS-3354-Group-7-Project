@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}">
+        <title>Custom Vends | Home </title>
+    </head>
+    <body>
+        <div class="main-content">
+            <div class="vending-wrap">
+                <div class="nav">
+                    <div class="nav-header">
+                      <div class="nav-title">
+                        <h1>Custom Vends</h1>
+                      </div>
+                    </div>
+
+                    <div class="nav-links">
+                      {% if user.is_authenticated %}
+                      <a href="/" class="selected">Home</a>
+                      <a href="/contact" >Contact Us</a>
+                      <a href="/inventory" >Inventory</a>
+                      <a href ="/admin" > Admin Page</a>
+                      <a href="/logout" >Logout</a>
+            
+                      {% else %}
+                      <a href="/login" class="selected">Login</a>
+                      <a href="/login" >Sign Up</a>
+                      <a href="/contact" >Contact Us</a>
+                      {% endif %}
+                    </div>
+                  </div>
+                <div class="vending-content-wrap">
+                    <div class="selected-wrap">
+                        <h3>Selected Items</h3>
+                        <div class="selected-items-wrap" id="selected-items-wrap">
+                            <!--Selected Items go here-->
+                        </div>
+                        <p id="total">Total: $<span id="total-price">0.00<span></p>
+                        <a href="/purchase"><button>Purchase</button></a>
+                    </div>
+                </div>
+
+            </div> <!--End of Vending Content-->
+            <div class="sidebar-wrap">
+                <div class="wrapper aligned">
+                    <div class="box item2">
+                        <form method="POST">
+                            <form>
+                                <h3>Enter Payment</h3>
+                                <div class="inset">
+                                <p>
+                                  <label for="dollars">Dollar Amount</label>
+                                  <input type="number" name="dollars" id="dollars">
+                                </p>
+                                <p>
+                                  <label for="quarters">Number of Quarters</label>
+                                  <input type="number" name="quarters" id="quarters">
+                                </p>
+                                <p>
+                                    <label for="dimes">Number of Dimes</label>
+                                    <input type="number" name="dimes" id="dimes">
+                                  </p>
+                                  <p>
+                                    <label for="nickels">Number of Nickels</label>
+                                    <input type="number" name="nickels" id="nickels">
+                                  </p>
+                                  <p>
+                                    <label for="pennies">Number of Pennies</label>
+                                    <input type="number" name="pennies" id="pennies">
+                                  </p>
+                                </div>
+                                <p class="p-container">
+                                  <input type="submit" name="go" id="go" value="Purchase">
+                                </p>
+                              </form>
+                        </form>
+                    </div>
+                  </div>
+                
+                <!--start of inserted
+                <div class="money-inserted-wrap">
+                    <h3>Money Inserted</h3>
+                    <div class="inserted-wrap">
+                        <div class="inserted-info">
+                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
+                            <p class="item-name"></p>
+                            <p class="item-counter"></p>
+                        </div>
+                    </div>
+                    <button>Dispense</button>
+                </div>
+                -->
+            </div> <!--End of Sidebar Content-->
+        </div>
+
+        <!--Scripts-->
+         <script type="application/javascript">
+            function showMsg(item) {
+            alert(item);
+        }
+
+         function search() {
+             // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('item-input');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("items-wrap");
+            li = ul.getElementsByTagName('div');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("p")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
+        }
+
+        
+        </script>
+    </body>
+</html>
+

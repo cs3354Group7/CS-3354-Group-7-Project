@@ -25,9 +25,38 @@ def home(machine):
     return render_template('index.html', user = current_user, context = context)
 
 # Return Purchase Page
-@views.route("/purchase")
+@views.route("/purchase",methods=['GET', 'POST'])
 def purchase():
-    return "Purchase Page"
+    if request.method == "POST":
+        dollars = request.form.get('dollars')
+        quarters = request.form.get('quarters')
+        dimes = request.form.get('dimes')
+        nickels = request.form.get('nickels')
+        pennies = request.form.get('pennies')
+        check_machine = Money.query.filter_by(machine).first()
+        
+        if check_machine:
+            if dollars:
+                check_machine.dollars = check_machine.dollars + int(dollars)
+                check_machine.total = check_machine.total + int(dollars)
+            if quarters:
+                check_machine.quarters = check_machine.quarters + int(quarters)
+                check_machine.total = check_machine.total + Decimal(check_machine.quarters) * Decimal(.25)
+            if dimes:
+                check_machine.dimes = check_machine.dimes + int(dimes)
+                check_machine.total = check_machine.total + Decimal(check_machine.dimes) * Decimal(.10)
+            if nickels:
+                check_machine.nickels = check_machine.nickels + int(nickels)
+                check_machine.total = check_machine.total + Decimal(check_machine.nickels) * Decimal(.05)
+            if pennies:
+                check_machine.pennies = check_machine.pennies + int(pennies)
+                check_machine.total = check_machine.total + Decimal(check_machine.pennies) * Decimal(.01)
+            db.session.commit()
+        else:
+            flash('Machine does not exist.', category= 'error')
+    machine = Money.query.all()
+
+    return render_template("purchase.html", user = current_user)
 
 # Return Admin Page
 @views.route("/admin",methods=['GET', 'POST'])
@@ -92,11 +121,11 @@ def inventory():
     return render_template("inventory.html", user = current_user, items = items)
 
 # Return Contact Us Page
-@views.route("/contact", methods=['GET', 'POST'])
+@views.route("/contact",methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
         email = request.form.get('email')
-        first_name = request.form.get('fristName')
+        first_name = request.form.get('firstName')
         last_name = request.form.get('lastName')
         note = request.form.get('note')
         mobile = request.form.get('mobile')
