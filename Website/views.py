@@ -24,6 +24,20 @@ def home(machine):
     }
     return render_template('index.html', user = current_user, context = context)
 
+
+# Return Maintenance Page Page
+@views.route("/maintenance, methods=['GET', 'POST']")
+@login_required
+def maintenance():
+    if request.method == "POST":
+        #Do some post method actions
+        stuff = request.form.get("")
+    else:
+        #Do some "GET" request actions
+        otherStuff = request.form.get("")
+    
+    return "maintenance Page"
+
 # Return Purchase Page
 @views.route("/purchase")
 def purchase():
