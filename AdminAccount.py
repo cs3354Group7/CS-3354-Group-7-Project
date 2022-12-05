@@ -15,11 +15,12 @@ password of the username of the admin account.
 '''
 
 class AdminAccount:
-    def __init__(self, userName = None, password = None, passWordExpiryDate = None, failedAttempts = None):
+    def __init__(self, userName = None, password = None, passWordExpiryDate = None, failedAttempts = None, priviledge = None):
         self.userName = userName
         self.password = password
         self.passWordExpiryDate = passWordExpiryDate
         self.failedAttempts = failedAttempts
+        self.priviledge = priviledge
         
     def updateAccount(self, admin):
         """ Updates Admin Account, like an alternate constructor 
@@ -29,6 +30,7 @@ class AdminAccount:
             self.password = admin.passWord
             self.passWordExpiryDate = admin.passWordExpiryDate
             self.failedAttempts = admin.failedAttempts 
+            self.priviledge = admin.priviledge
             
         
     def updatePassword(self, password):
@@ -37,6 +39,10 @@ class AdminAccount:
    
     def updateUserName(self, userName):
         self.userName = userName
+    
+    
+    def updatePriviledge(self, priviledge):
+        self.priviledge = priviledge
        
        
        

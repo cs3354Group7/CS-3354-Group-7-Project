@@ -26,4 +26,13 @@ class AccountController:
     
     def FinalTask(self):
         self.databaseController.disconnectFromDatabase()
+        
+    def saveAccount(self, newAccount):
+        self.databaseController.saveAdminAccount(newAccount)
+        
+        
+        
+    def createNewAccount(self, userName, password, passWordExpiryDate, failedAttempts, priviledge):
+        newAccount = AdminAccount(userName, password, passWordExpiryDate, failedAttempts, priviledge)
+        self.databaseController.saveAdminAccount(newAccount)
     
