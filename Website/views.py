@@ -15,9 +15,11 @@ def home(machine):
     machine = machine.split("=")[1]
     machines = Machines.query.all()
     current = Machines.query.filter_by(id = int(machine)).first()
+    inventory = Inventory.query.filter_by(machine_id = int(machine))
     context = {
         'machines' : machines,
         'current' : current,
+        'inventory': inventory,
     }
     return render_template('index.html', user = current_user, context = context)
 

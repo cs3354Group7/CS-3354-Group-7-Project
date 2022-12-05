@@ -35,66 +35,16 @@
                 <div class="vending-content-wrap">
                     <h1>{{context.current.name}}</h1>
                     <div class="items-wrap" id="items-wrap">
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
-                            <p>coke</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item">
-                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
-                        <div class="machine-item">
-                            <img  src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                            <p>Item Name</p>
-                            <p>Price: $1.50</p>
-                        </div><!--End of machine item wrap-->
+                        {% for item in context.inventory %}
+                            <div class="machine-item" onclick="showMsg('Hello')">
+                                <img src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
+                                <p>{{item.item}}</p>
+                                <p>Price: ${{item.price}}</p>
+                                {% if item.qty == 0 %} 
+                                    <p style="color:red;">Out of Stock</p>
+                                {% endif %}
+                            </div><!--End of machine item wrap-->
+                        {% endfor %}
                     </div><!--End of items wrap-->
 
                 </div>
@@ -135,12 +85,14 @@
                         <div class="selection-wrap">
                             <div class="selection-content">
                                 {% for machine in context.machines %}
+                                    {% if context.current.id != machine.id and machine.id < 7 %}
                                     <a href="/machine={{machine.id}}">
                                         <div class="machine-item">
                                         <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
                                             <p>{{machine.name}}</p>
                                         </div><!--End of machine item wrap-->
                                     </a>
+                                    {% endif %}
                                 {% endfor %}
                             </div><!--End of selection content-->
                         </div>
