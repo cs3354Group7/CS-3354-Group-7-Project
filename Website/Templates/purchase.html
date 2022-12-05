@@ -40,18 +40,20 @@
         </div>
         {% endif %} {% endfor %} {% endif %} {% endwith %}
     <div class="container">
-      <form method="POST">
-        <form>
+      <div class = "form">
+        <div>
             <h1>Checkout</h1>
             <h2>Total: ${{total}}</h2>
-            <input type="number" step = ".01" name="moneyz" id="moneyz" placeholder="Enter Amount">
-            <p class = buttonCenter><input type="submit" name="goo" value="Purchase" id="button"></p>
-            <h2>Change: ${{total}} </h2>
-        </form>
-        </form>
+            <button class = "buttonCenter" id="button" onclick="purchaseMade()">Buy Now</button>
+        </div>
+        </div>
     </div>
 
     <script>
+      function purchaseMade(){
+        alert('Purchase Successful');
+        window.location.replace("/");
+      }
     </script>
 </body>
 </html>
