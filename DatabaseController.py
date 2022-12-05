@@ -79,6 +79,9 @@ class DatabaseController:
         self.databaseCursor.execute('DELETE ?', (tableName, ))
         return
     
+    def deleteAdmin(self, admin):
+        self.databaseCursor.execute("DELETE FROM AdminAccount WHERE USERNAME = ?", (admin.userName,))
+    
    
     """
     TODO(): Functionality to add in future updates Some SQL scrub means to 

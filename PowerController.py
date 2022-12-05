@@ -7,8 +7,9 @@ Created on Wed Nov  2 15:09:30 2022
 
 class PowerController:
     
-    def __init__(self, intendedState, schedule = None):
+    def __init__(self, vendingMachines, intendedState = False, schedule = None):
         #Initializes the database that stores schedule info and 
+        
         self.intendedState = intendedState
         self.schedule = schedule
     

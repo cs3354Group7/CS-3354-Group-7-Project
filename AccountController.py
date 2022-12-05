@@ -30,6 +30,8 @@ class AccountController:
     def saveAccount(self, newAccount):
         self.databaseController.saveAdminAccount(newAccount)
         
+    def deleteAccount(self, account):
+        self.databaseController.deleteAdmin(account)
         
         
     def createNewAccount(self, userName, password, passWordExpiryDate, failedAttempts, priviledge):
