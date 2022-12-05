@@ -27,16 +27,8 @@ def home(machine):
 # Return Purchase Page
 @views.route("/purchase", methods=['GET', 'POST'])
 def purchase():
-    totals = 0.0
-    if request.method =="POST":
-        money = request.form.get('moneyz')
-        money2 = Decimal(money)
-        if money2 == 0:
-            flash("Insufficient Funds")
-        elif money2 < Decimal(9.26):
-             flash("Insufficient Funds")
-        else:
-            totals = round(money2 - Decimal(9.26), 2)
+    totals = request.args.get('total', default=0.00)
+    print("[*]", totals)
     total = totals
     return render_template("purchase.html", user = current_user, total = total)
 
