@@ -13,11 +13,11 @@ class PowerController:
         self.schedule = schedule
     
     
-    def powerOff():
-        intendedState = False
+    def powerOff(self):
+        self.intendedState = False
     
-    def powerOn():
-        intendedState = True
+    def powerOn(self):
+        self.intendedState = True
     
     
 

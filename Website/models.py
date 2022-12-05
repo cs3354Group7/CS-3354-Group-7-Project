@@ -27,6 +27,7 @@ class Inventory(db.Model):
     item = db.Column(db.String(150), unique = True)
     qty = db.Column(db.Integer)
     price = db.Column(db.Numeric(precision = 10, scale = 2), nullable = False)
+    machine_id = db.Column(db.Integer)
 
 class Money(db.Model):
     __bind_key__ = "four"
@@ -38,5 +39,11 @@ class Money(db.Model):
     dimes = db.Column(db.Integer)
     pennies = db.Column(db.Integer)
     total = db.Column(db.Numeric(precision = 10, scale = 2), nullable = False)
+
+class Machines(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(150), unique = True)
+    owner = db.Column(db.Integer)
+
 
 

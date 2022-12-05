@@ -3,45 +3,40 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}">
+        <title>Custom Vends | Home </title>
     </head>
     <body>
         <div class="main-content">
             <div class="vending-wrap">
                 <div class="nav">
-                    <input type="checkbox" id="nav-check">
                     <div class="nav-header">
                       <div class="nav-title">
-                        Custom Vends
+                        <h1>Custom Vends</h1>
                       </div>
                     </div>
-                    <div class="nav-btn">
-                      <label for="nav-check">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                      </label>
-                    </div>
-                    
+
+                    <input type="text" id="item-input" class="item-input" onkeyup="search()" placeholder="Search for item..">
+
                     <div class="nav-links">
                       {% if user.is_authenticated %}
-                      <a href="/" >Home</a>
+                      <a href="/" class="selected">Home</a>
                       <a href="/contact" >Contact Us</a>
                       <a href="/inventory" >Inventory</a>
                       <a href ="/admin" > Admin Page</a>
                       <a href="/logout" >Logout</a>
             
                       {% else %}
-                      <a href="/" >Home</a>
-                      <a href="/login" >Login</a>
+                      <a href="/login" class="selected">Login</a>
+                      <a href="/login" >Sign Up</a>
                       <a href="/contact" >Contact Us</a>
                       {% endif %}
                     </div>
                   </div>
                 <div class="vending-content-wrap">
-                    <h1>Vending Machine</h1>
-                    <div class="items-wrap">
+                    <h1>{{context.current.name}}</h1>
+                    <div class="items-wrap" id="items-wrap">
                         <div class="machine-item" onclick="showMsg('Hello')">
-                            <img  src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
+                            <img src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
                             <p>coke</p>
                             <p>Price: $1.50</p>
                         </div><!--End of machine item wrap-->
@@ -101,55 +96,6 @@
                             <p>Price: $1.50</p>
                         </div><!--End of machine item wrap-->
                     </div><!--End of items wrap-->
-                    <div class="select-machine-wrap">
-                        <h3>Select Machine</h3>
-                        <div class="selection-wrap">
-                            <div class="left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
-                            <div class="selection-content">
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                                <div class="machine-item" onclick="showMsg('Hello')">
-                                    <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
-                                    <p>Item Name</p>
-                                    <p>Price: $1.50</p>
-                                </div><!--End of machine item wrap-->
-                            </div><!--End of selection content-->
-                            <div class="right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-                        </div>
-                    </div><!--End of machine wrap-->
 
                 </div>
 
@@ -184,6 +130,22 @@
                     <button>Dispense</button>
                 </div>
 
+                 <div class="select-machine-wrap">
+                        <h3>Select Machine</h3>
+                        <div class="selection-wrap">
+                            <div class="selection-content">
+                                {% for machine in context.machines %}
+                                    <a href="/machine={{machine.id}}">
+                                        <div class="machine-item">
+                                        <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                            <p>{{machine.name}}</p>
+                                        </div><!--End of machine item wrap-->
+                                    </a>
+                                {% endfor %}
+                            </div><!--End of selection content-->
+                        </div>
+                    </div><!--End of machine wrap-->
+
             </div> <!--End of Sidebar Content-->
         </div>
 
@@ -191,6 +153,26 @@
          <script type="application/javascript">
             function showMsg(item) {
             alert(item);
+        }
+
+         function search() {
+             // Declare variables
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById('item-input');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("items-wrap");
+            li = ul.getElementsByTagName('div');
+
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("p")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+                } else {
+                li[i].style.display = "none";
+                }
+            }
         }
         </script>
     </body>
