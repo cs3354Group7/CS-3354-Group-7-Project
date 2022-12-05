@@ -125,7 +125,6 @@
             quantity = parseInt(quantity);
             console.log(id, name, quantity)
             if(quantity != 0){
-                alert("Works!!");
                 if(document.getElementById("item-info-" + id)){
                     var count = document.getElementById("item-counter-" + id).innerText;
                     document.getElementById("item-counter-" + id).innerHTML = parseInt(count) + 1;
@@ -135,6 +134,7 @@
                             '<p class="item-name">' + name + '</p>' +
                             '<p id="item-counter-' + id + '">1</p>' + 
                         '</div>';
+                    document.getElementById("item-info-"+ id).setAttribute("onclick", "removeItem(" + id + ", " + price + ")");
                 }
                 document.getElementById("item-" + id).innerHTML = quantity - 1;
                 
@@ -143,6 +143,25 @@
             } else{
                 alert("No more in stock!");
                 document.getElementById("outof-" + id).innerHTML = "Out of Stock";
+            }
+        }
+
+        function removeItem(id, price){
+            var quantity = document.getElementById("item-counter-" + id).innerText;
+            quantity = parseInt(quantity);
+            if(quantity != 0){
+                var count = document.getElementById("item-counter-" + id).innerText;
+                document.getElementById("item-counter-" + id).innerHTML = parseInt(count) - 1;
+                
+                var quantity1 = document.getElementById("item-" + id).innerText;
+                quantity1 = parseInt(quantity1);
+                document.getElementById("item-" + id).innerHTML = quantity1 + 1;
+                document.getElementById("outof-" + id).innerHTML = "";
+                
+                var total = parseFloat(document.getElementById("total-price").innerText);
+                document.getElementById("total-price").innerHTML = Number(Math.round((total - price)+'e2')+'e-2');
+            } else{
+                document.getElementById("item-info-" + id).remove();
             }
         }
         </script>
