@@ -22,9 +22,9 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(150))
 
 class Inventory(db.Model):
-    __bind_key__ = 'two'
+    #__bind_key__ = 'two'
     id = db.Column(db.Integer, primary_key = True)
-    item = db.Column(db.String(150), unique = True)
+    item = db.Column(db.String(150))
     qty = db.Column(db.Integer)
     price = db.Column(db.Numeric(precision = 10, scale = 2), nullable = False)
     machine_id = db.Column(db.Integer)

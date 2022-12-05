@@ -13,7 +13,7 @@ def create_app():
     app.static_folder = 'static'
     app.config['SECRET_KEY'] = 'Group 7'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-    app.config['SQLALCHEMY_BINDS'] = {'two': 'sqlite:///inventory.db', 
+    app.config['SQLALCHEMY_BINDS'] = {#'two': 'sqlite:///inventory.db', 
                                        'three': 'sqlite:///contact.db',
                                        'four': 'sqlite:///money.db', 
                                        'five': 'sqlite:///customer.db' }
