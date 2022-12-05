@@ -1,6 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Dec  5 01:57:55 2022
+Created on Mon Dec  5 04:02:15 2022
+
+@author: kso170000
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  5 03:59:22 2022
 
 @author: kso170000
 """
@@ -12,7 +19,7 @@ Created on Mon Dec  5 01:57:55 2022
         <meta charset = "UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Manage Vending Machines</title>
+        <title>Inventory restocking</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='admin.css') }}">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
@@ -61,12 +68,5 @@ Created on Mon Dec  5 01:57:55 2022
              {{ message }}
            </div>
            
-           <div class = "">
-           <a href="/maintenance"> Vending Machine Maintenance </a><br>
-           <a href="/temperature"> Temperature control </a><br>
-           <a href="/accountControl"> Admin account Management </a><br>
-           <a href="/restockingInventory"> Product Inventory Stock Manager </a><br>
-           </div>
-        
     </body>
 </html>
