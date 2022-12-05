@@ -36,13 +36,12 @@
                     <h1>{{context.current.name}}</h1>
                     <div class="items-wrap" id="items-wrap">
                         {% for item in context.inventory %}
-                            <div class="machine-item" onclick="showMsg('Hello')">
+                            <div class="machine-item" onclick="addItem({{item.id}}, '{{item.item}}', {{item.price}})">
                                 <img src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png"/>
                                 <p>{{item.item}}</p>
                                 <p>Price: ${{item.price}}</p>
-                                {% if item.qty == 0 %} 
-                                    <p style="color:red;">Out of Stock</p>
-                                {% endif %}
+                                <p hidden id="item-{{item.id}}">{{item.qty}}</p>
+                                <p id="outof-{{item.id}}" style="color:red;"></p>
                             </div><!--End of machine item wrap-->
                         {% endfor %}
                     </div><!--End of items wrap-->
@@ -54,20 +53,13 @@
 
                 <div class="selected-wrap">
                     <h3>Selected Items</h3>
-                    <div class="selected-items-wrap">
-                        <div class="item-info">
-                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
-                            <p class="item-name">Chanel</p>
-                            <p class="item-counter">6</p>
-                        </div> <!--End of item info-->
-                        <div class="item-info">
-                            <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
-                            <p class="item-name">Chanel</p>
-                            <p class="item-counter">6</p>
-                        </div> <!--End of item info-->
+                    <div class="selected-items-wrap" id="selected-items-wrap">
+                        <!--Selected Items go here-->
                     </div>
-                    <button>Purchase</button>
+                    <p id="total">Total: $<span id="total-price">0.00<span></p>
+                    <a href="/purchase"><button>Purchase</button></a>
                 </div>
+                <!--start of inserted
                 <div class="money-inserted-wrap">
                     <h3>Money Inserted</h3>
                     <div class="inserted-wrap">
@@ -75,10 +67,11 @@
                             <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png" alt="wow">
                             <p class="item-name"></p>
                             <p class="item-counter"></p>
-                        </div> <!--End of item info-->
+                        </div>
                     </div>
                     <button>Dispense</button>
                 </div>
+                -->
 
                  <div class="select-machine-wrap">
                         <h3>Select Machine</h3>
@@ -86,7 +79,7 @@
                             <div class="selection-content">
                                 {% for machine in context.machines %}
                                     {% if context.current.id != machine.id and machine.id < 7 %}
-                                    <a href="/machine={{machine.id}}">
+                                    <a href="/?machine={{machine.id}}">
                                         <div class="machine-item">
                                         <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
                                             <p>{{machine.name}}</p>
@@ -124,6 +117,32 @@
                 } else {
                 li[i].style.display = "none";
                 }
+            }
+        }
+
+        function addItem(id, name, price){
+            var quantity = document.getElementById("item-" + id).innerText;
+            quantity = parseInt(quantity);
+            console.log(id, name, quantity)
+            if(quantity != 0){
+                alert("Works!!");
+                if(document.getElementById("item-info-" + id)){
+                    var count = document.getElementById("item-counter-" + id).innerText;
+                    document.getElementById("item-counter-" + id).innerHTML = parseInt(count) + 1;
+                } else{
+                    document.getElementById("selected-items-wrap").innerHTML += '<div id="item-info-'+ id + '" class="item-info">' +
+                            '<img src="https://www.freeiconspng.com/uploads/coca-cola-soda-can-png-image-12.png" alt="wow">' +
+                            '<p class="item-name">' + name + '</p>' +
+                            '<p id="item-counter-' + id + '">1</p>' + 
+                        '</div>';
+                }
+                document.getElementById("item-" + id).innerHTML = quantity - 1;
+                
+                var total = parseFloat(document.getElementById("total-price").innerText);
+                document.getElementById("total-price").innerHTML = Number(Math.round((total + price)+'e2')+'e-2');
+            } else{
+                alert("No more in stock!");
+                document.getElementById("outof-" + id).innerHTML = "Out of Stock";
             }
         }
         </script>
