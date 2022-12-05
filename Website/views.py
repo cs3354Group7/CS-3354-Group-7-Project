@@ -13,7 +13,7 @@ views = Blueprint('views', __name__)
 @views.route("/<machine>", methods=['GET', 'POST'])
 def home(machine):
     print(machine)
-    machine1 = request.args.get('machine')
+    machine1 = request.args.get('machine', default=1)
     machines = Machines.query.all()
     current = Machines.query.filter_by(id = int(machine1)).first()
     inventory = Inventory.query.filter_by(machine_id = int(machine1))
