@@ -1,0 +1,72 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  5 04:02:15 2022
+
+@author: kso170000
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  5 03:59:22 2022
+
+@author: kso170000
+"""
+
+<!DOCTYPE html>
+<html lang = "en">
+
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inventory restocking</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='admin.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans">
+    </head>
+    
+    <body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Custom Vends
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          {% !if user.is_authenticated %}
+          <a href="/" >Home</a>
+          <a href="/login" >Login</a>
+          <a href="/contact" >Contact Us</a>
+
+          {% else %}
+           <a href="/" >Home</a>
+           <a href="/contact" >Contact Us</a>
+           <a href="/inventory" >Inventory</a>
+           <a href ="/admin" > Admin Page</a>
+           <a href="/logout" >Logout</a>
+          {% endif %}
+        </div>
+        
+         {% with messages = get_flashed_messages(with_categories=true) %} {% if
+           messages %} {% for category, message in messages %} {% if category ==
+           'error' %}
+           <div class="alert alert-danger alter-dismissable fade show" role="alert">
+             {{ message }}
+               
+           </div>
+           {% else %}
+           <div class="alert alert-success alter-dismissable fade show" role="alert">
+             {{ message }}
+           </div>
+           
+    </body>
+</html>

@@ -8,9 +8,12 @@ to be added to and subtracted using the sub and add functions.
 class Inventory:
     def __init__(self, inventory = {}):
         self.inventory = inventory
+        
+    def get_Price(self, item):
+        return self.inventory.get(item).getPrice()
     
     def get_Quantity(self, item):
-        value = self.inventory.get(item).getPrice()
+        value = self.inventory.get(item).getQuantity()
         if (value == None):
             return 0
         else:
