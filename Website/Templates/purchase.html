@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='purchase.css') }}">
+</head>
+<body>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Custom Vends
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="/" >Back</a>
+        </div>
+      </div>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %} {% if category ==
+        'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+            
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+        </div>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <div class="container">
+      <form method="POST">
+        <form>
+            <h1>Checkout</h1>
+            <h2>Total: $ 9.26</h2>
+            <input type="number" step = ".01" name="moneyz" id="moneyz" placeholder="Enter Amount">
+            <p class = buttonCenter><input type="submit" name="goo" value="Purchase" id="button"></p>
+            <h2>Change: ${{total}} </h2>
+        </form>
+        </form>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>
