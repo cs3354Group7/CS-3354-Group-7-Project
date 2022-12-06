@@ -43,6 +43,14 @@ def maintenance():
 def purchase():
     return "Purchase Page"
 
+@views.route("/power
+def purchase():
+    if request.method == "POST":
+        machineChoice = request.form.get("machineChoice")
+        powerOption = request.form.get("power")
+        
+    return "Purchase Page"
+
 # Return Admin Page
 @views.route("/admin",methods=['GET', 'POST'])
 @login_required

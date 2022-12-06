@@ -19,7 +19,7 @@ class DatabaseController:
         """
         if dataBase is not None:
             self.connection = sqlite3.connect(dataBase)
-            self.databaseCursor = connection.cursor()
+            self.databaseCursor = self.connection.cursor()
            
     
     

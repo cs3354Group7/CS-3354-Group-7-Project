@@ -26,6 +26,9 @@ class AdminMaintenance:
     
     def addNewAdmin(self, admin):
         self.accountController.createNewAccount(admin)
+        
+    def getInventory(self):
+        self.accountController.getD
     
     def demoteAdmin():
         return

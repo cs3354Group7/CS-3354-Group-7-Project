@@ -8,11 +8,14 @@ by giving the user an access or denial token. The logout function revokes the
 current user's session. 
 '''
 
+import AccountController
+
 class MainMenu:
     def __init__(self, machines, username, password):
         self.machines = machines
         self.username = username
         self.password = password
+        self.accountController = AccountController()
 
     def browseMachines(self):
         return self.machines

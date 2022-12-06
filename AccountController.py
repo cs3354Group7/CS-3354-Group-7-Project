@@ -20,6 +20,9 @@ class AccountController:
             return False
         else:
             return True
+        
+        def getDatabaseHandler(self):
+            return self.databaseController
     
     def getAccount(self, userName):
          return self.databaseController.findAdmin(userName)

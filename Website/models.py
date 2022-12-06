@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     last_name = db.Column(db.String(150))
+    
 
 class Inventory(db.Model):
     #__bind_key__ = 'two'
@@ -44,6 +45,12 @@ class Machines(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(150), unique = True)
     owner = db.Column(db.Integer)
+    temp = db.Column(db.Numeric(precision = 10, scale = 2), nullable = False)
+    state = db.Column(db.String(150), nullable = False)
+    
+    
+    
+
 
 
 
