@@ -27,7 +27,7 @@
             
                       {% else %}
                       <a href="/login" class="selected">Login</a>
-                      <a href="/login" >Sign Up</a>
+                      <a href="/sign-up" >Sign Up</a>
                       <a href="/contact" >Contact Us</a>
                       {% endif %}
                     </div>
@@ -57,7 +57,7 @@
                         <!--Selected Items go here-->
                     </div>
                     <p id="total">Total: $<span id="total-price">0.00<span></p>
-                    <a href="/purchase"><button>Purchase</button></a>
+                    <button onclick= "purchaseItem()">Purchase</button>
                 </div>
                 <!--start of inserted
                 <div class="money-inserted-wrap">
@@ -81,7 +81,7 @@
                                     {% if context.current.id != machine.id and machine.id < 7 %}
                                     <a href="/?machine={{machine.id}}">
                                         <div class="machine-item">
-                                        <img src="https://www.freeiconspng.com/uploads/transparent-square-11.png"/>
+                                        <img src="https://www.kindpng.com/picc/m/317-3172046_vending-machine-png-transparent-png.png"/>
                                             <p>{{machine.name}}</p>
                                         </div><!--End of machine item wrap-->
                                     </a>
@@ -149,7 +149,7 @@
         function removeItem(id, price){
             var quantity = document.getElementById("item-counter-" + id).innerText;
             quantity = parseInt(quantity);
-            if(quantity != 0){
+            if(quantity -1 != 0){
                 var count = document.getElementById("item-counter-" + id).innerText;
                 document.getElementById("item-counter-" + id).innerHTML = parseInt(count) - 1;
                 
@@ -162,7 +162,14 @@
                 document.getElementById("total-price").innerHTML = Number(Math.round((total - price)+'e2')+'e-2');
             } else{
                 document.getElementById("item-info-" + id).remove();
+                var total = parseFloat(document.getElementById("total-price").innerText);
+                document.getElementById("total-price").innerHTML = Number(Math.round((total - price)+'e2')+'e-2');
             }
+        }
+
+        function purchaseItem(){
+            var total = document.getElementById("total-price").innerText;
+            window.location.replace("/purchase?total=" + total);
         }
         </script>
     </body>
